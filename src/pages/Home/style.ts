@@ -12,3 +12,6 @@ export const StyledNavigationContainer = styles.div`
     flex-wrap: wrap;
   }
 `;
+
+export const StyledPostContainer = styles.div`
+`;

@@ -1,5 +1,10 @@
 import { Button } from "../../components/common/Button";
-import { StyledMainContainer, StyledNavigationContainer } from "./style";
+import { Post } from "../../components/common/Post";
+import {
+  StyledMainContainer,
+  StyledNavigationContainer,
+  StyledPostContainer,
+} from "./style";
 
 export default function Home() {
   return (
@@ -10,8 +15,10 @@ export default function Home() {
           <Button text="News" active={true} />
           <Button text="Rising" active={true} />
         </StyledNavigationContainer>
+        <StyledPostContainer>
+          <Post />
+        </StyledPostContainer>
       </StyledMainContainer>
-      <h1>Home page</h1>
     </>
   );
 }
