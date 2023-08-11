@@ -5,9 +5,11 @@ function App() {
   return (
     <main>
       <Header />
-      <div className="container">
-        <Routes />
-      </div>
+      <section className="container">
+        <div className="content">
+          <Routes />
+        </div>
+      </section>
     </main>
   );
 }
