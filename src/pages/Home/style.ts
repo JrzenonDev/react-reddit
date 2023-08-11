@@ -14,4 +14,10 @@ export const StyledNavigationContainer = styles.div`
 `;
 
 export const StyledPostContainer = styles.div`
+  margin-bottom: 20px;
+`;
+
+export const StyledMorePostContainer = styles.div`
+  display: flex;
+  justify-content: center;
 `;
