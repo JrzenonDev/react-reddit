@@ -1,11 +1,15 @@
 import "./App.css";
+import { Header } from "./components/layout/Header";
 import Routes from "./routes/Routes";
 
 function App() {
   return (
-    <>
-      <Routes />
-    </>
+    <main>
+      <Header />
+      <div className="container">
+        <Routes />
+      </div>
+    </main>
   );
 }
 
