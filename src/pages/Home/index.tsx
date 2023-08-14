@@ -17,7 +17,9 @@ export default function Home() {
   useEffect(() => {
     fetchRedditPosts(subreddit)
       .then((data) => {
-        console.log(data);
+        console.log("data: ", data);
+        setArticles(data.data.children);
+        console.log("articles: ", articles);
       })
       .catch((error) => {
         console.error(error);
@@ -33,7 +35,21 @@ export default function Home() {
           <Button text="Rising" active={true} />
         </StyledNavigationContainer>
         <StyledPostContainer>
-          <Post />
+          {articles.map((article: any) => {
+            const { thumbnail, id, title, author, created_utc, url } =
+              article.data;
+
+            return (
+              <Post
+                thumbnail={thumbnail}
+                key={id}
+                title={title}
+                author={author}
+                created_utc={created_utc}
+                url={url}
+              />
+            );
+          })}
         </StyledPostContainer>
         <StyledMorePostContainer>
           <StyledButton>+ Ver mais</StyledButton>

@@ -8,9 +8,12 @@ export const StyledMainContainer = styles.div`
 
 export const StyledThumbnailContainer = styles.div`
   margin-right: 13px;
-  img {
-    border-radius: 8px;
-  }
+`;
+
+export const StyledImage = styles.img`
+  width: 77px;
+  height: 77px;
+  border-radius: 8px;
 `;
 
 export const StyledPostContentContainer = styles.div`

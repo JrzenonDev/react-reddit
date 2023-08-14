@@ -3,24 +3,48 @@ import {
   StyledThumbnailContainer,
   StyledPostContentContainer,
   StyledLink,
+  StyledImage,
 } from "./style";
+import reddit from "../../../assets/images/reddit.png";
 
-export function Post() {
+interface PostProps {
+  thumbnail: string;
+  title: string;
+  author: string;
+  created_utc: string;
+  url: string;
+}
+
+export function Post({
+  thumbnail,
+  title,
+  author,
+  created_utc,
+  url,
+}: PostProps) {
+  let imageUrl;
+
+  if (thumbnail === "default" || thumbnail === "self") {
+    imageUrl = reddit;
+  } else {
+    imageUrl = thumbnail;
+  }
+
   return (
     <StyledMainContainer>
       <StyledThumbnailContainer>
-        <img src="https://placehold.co/77x77" alt="" />
+        <StyledImage src={imageUrl} alt={`Post ${title}`} />
       </StyledThumbnailContainer>
       <StyledPostContentContainer>
-        <h4>Título do post</h4>
+        <h4>{title}</h4>
         <p>
-          enviado há 6 horas por{" "}
-          <a href="" target="_blank">
-            usuário_nickname
+          enviado há {created_utc} horas por{" "}
+          <a href={`https://www.reddit.com/user/${author}`} target="_blank">
+            {author}
           </a>
         </p>
-        <StyledLink href="" target="_blank">
-          dominio.io
+        <StyledLink href={url} target="_blank">
+          {url}
         </StyledLink>
       </StyledPostContentContainer>
     </StyledMainContainer>
