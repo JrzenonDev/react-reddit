@@ -36,7 +36,7 @@ This application fetches and displays posts from the reactjs subreddit. It allow
 
 ## Where Can I See the Project Online?
 
-You can access the live version of the project on Netlify at the following URL: [https://app.netlify.com/sites/fastidious-cuchufli-e2da4c/overview](https://app.netlify.com/sites/fastidious-cuchufli-e2da4c/overview)
+You can access the live version of the project on Netlify at the following URL: [https://app.netlify.com/sites/fastidious-cuchufli-e2da4c/overview](https://64da3a68f606f9497cfbc5f9--fastidious-cuchufli-e2da4c.netlify.app/)
 
 Please note that the project is hosted on Netlify, and the link provided may change or become unavailable over time.
 
