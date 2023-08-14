@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const fetchRedditPosts = async (subreddit: string) => {
+export const fetchRedditPosts = async (subreddit: string, feedType: string) => {
   const clientId = import.meta.env.VITE_REACT_APP_CLIENT_ID;
   const clientSecret = import.meta.env.VITE_REACT_APP_CLIENT_SECRET;
 
@@ -22,7 +22,7 @@ export const fetchRedditPosts = async (subreddit: string) => {
     const accessToken = response.data.access_token;
 
     const res = await axios.get(
-      `https://oauth.reddit.com/r/${subreddit}.json`,
+      `https://oauth.reddit.com/r/${subreddit}/${feedType}.json`,
       {
         headers: {
           Authorization: `Bearer ${accessToken}`,

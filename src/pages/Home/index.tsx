@@ -15,9 +15,10 @@ export default function Home() {
   const [subreddit, setSubreddit] = useState("reactjs");
   const [visiblePosts, setVisiblePosts] = useState(10);
   const [allPostsLoaded, setAllPostsLoaded] = useState(false);
+  const [feedType, setFeedType] = useState("hot");
 
   useEffect(() => {
-    fetchRedditPosts(subreddit)
+    fetchRedditPosts(subreddit, feedType)
       .then((data) => {
         console.log("data: ", data);
         setArticles(data.data.children);
@@ -26,7 +27,7 @@ export default function Home() {
       .catch((error) => {
         console.error(error);
       });
-  }, [subreddit]);
+  }, [subreddit, feedType]);
 
   function loadMorePosts() {
     const newVisiblePosts = visiblePosts + 10;
@@ -42,9 +43,21 @@ export default function Home() {
     <>
       <StyledMainContainer>
         <StyledNavigationContainer>
-          <Button text="Hot" active={true} />
-          <Button text="News" active={true} />
-          <Button text="Rising" active={true} />
+          <Button
+            text="Hot"
+            active={feedType === "hot"}
+            onClick={() => setFeedType("hot")}
+          />
+          <Button
+            text="News"
+            active={feedType === "new"}
+            onClick={() => setFeedType("new")}
+          />
+          <Button
+            text="Rising"
+            active={feedType === "rising"}
+            onClick={() => setFeedType("rising")}
+          />
         </StyledNavigationContainer>
         <StyledPostContainer>
           {articles.slice(0, visiblePosts).map((article: any) => {
