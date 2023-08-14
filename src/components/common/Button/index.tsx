@@ -2,16 +2,15 @@ import { StyledButton } from "./style";
 
 interface ButtonProps {
   text: string;
-  active: boolean;
+  isActive: boolean;
+  width?: string;
   onClick: () => void;
 }
 
-export function Button({ text, active, onClick }: ButtonProps) {
+export function Button({ text, isActive, width, onClick }: ButtonProps) {
   return (
-    <>
-      <StyledButton className={active ? "active" : ""} onClick={onClick}>
-        {text}
-      </StyledButton>
-    </>
+    <StyledButton data-is-active={isActive} width={width} onClick={onClick}>
+      {text}
+    </StyledButton>
   );
 }

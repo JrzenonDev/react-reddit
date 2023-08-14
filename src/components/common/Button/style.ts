@@ -1,13 +1,18 @@
-import styles from "styled-components";
+import styled from "styled-components";
 
-export const StyledButton = styles.button`
-  width: 202px;
+interface ActiveButtonProps {
+  "data-is-active"?: boolean;
+  width?: string;
+}
+
+export const StyledButton = styled.button<ActiveButtonProps>`
+  width: ${(props) => (props.width ? props.width : "202px")};
   height: 48px;
   margin-right: 20px;
-  background: #a7b0be;
+  background: ${(props) => (props["data-is-active"] ? "#6324c6" : "#a7b0be")};
   border: transparent;
   border-radius: 8px;
-  font-family: 'Mulish', sans-serif;
+  font-family: "Mulish", sans-serif;
   font-size: 20px;
   font-weight: 600;
   color: #fff;

@@ -45,17 +45,17 @@ export default function Home() {
         <StyledNavigationContainer>
           <Button
             text="Hot"
-            active={feedType === "hot"}
+            isActive={feedType === "hot"}
             onClick={() => setFeedType("hot")}
           />
           <Button
             text="News"
-            active={feedType === "new"}
+            isActive={feedType === "new"}
             onClick={() => setFeedType("new")}
           />
           <Button
             text="Rising"
-            active={feedType === "rising"}
+            isActive={feedType === "rising"}
             onClick={() => setFeedType("rising")}
           />
         </StyledNavigationContainer>
@@ -77,7 +77,7 @@ export default function Home() {
           })}
         </StyledPostContainer>
         <StyledMorePostContainer>
-          <StyledButton onClick={loadMorePosts}>
+          <StyledButton width="100%" onClick={loadMorePosts}>
             {allPostsLoaded
               ? "Sem mais posts a serem carregados"
               : "+ Ver mais"}
