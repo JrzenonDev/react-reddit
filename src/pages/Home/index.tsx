@@ -12,7 +12,7 @@ import { fetchRedditPosts } from "../../api/redditApi";
 
 export default function Home() {
   const [articles, setArticles] = useState([]);
-  const [subreddit, setSubreddit] = useState("reactjs");
+  const [subreddit] = useState("reactjs");
   const [visiblePosts, setVisiblePosts] = useState(10);
   const [allPostsLoaded, setAllPostsLoaded] = useState(false);
   const [feedType, setFeedType] = useState("hot");
