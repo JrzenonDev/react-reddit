@@ -13,6 +13,8 @@ import { fetchRedditPosts } from "../../api/redditApi";
 export default function Home() {
   const [articles, setArticles] = useState([]);
   const [subreddit, setSubreddit] = useState("reactjs");
+  const [visiblePosts, setVisiblePosts] = useState(10);
+  const [allPostsLoaded, setAllPostsLoaded] = useState(false);
 
   useEffect(() => {
     fetchRedditPosts(subreddit)
@@ -26,6 +28,16 @@ export default function Home() {
       });
   }, [subreddit]);
 
+  function loadMorePosts() {
+    const newVisiblePosts = visiblePosts + 10;
+
+    if (newVisiblePosts >= articles.length) {
+      setAllPostsLoaded(true);
+    }
+
+    setVisiblePosts(newVisiblePosts);
+  }
+
   return (
     <>
       <StyledMainContainer>
@@ -35,7 +47,7 @@ export default function Home() {
           <Button text="Rising" active={true} />
         </StyledNavigationContainer>
         <StyledPostContainer>
-          {articles.map((article: any) => {
+          {articles.slice(0, visiblePosts).map((article: any) => {
             const { thumbnail, id, title, author, created_utc, url } =
               article.data;
 
@@ -52,7 +64,11 @@ export default function Home() {
           })}
         </StyledPostContainer>
         <StyledMorePostContainer>
-          <StyledButton>+ Ver mais</StyledButton>
+          <StyledButton onClick={loadMorePosts}>
+            {allPostsLoaded
+              ? "Sem mais posts a serem carregados"
+              : "+ Ver mais"}
+          </StyledButton>
         </StyledMorePostContainer>
       </StyledMainContainer>
     </>
