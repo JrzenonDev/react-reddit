@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Button } from "../../components/common/Button";
 import { StyledButton } from "../../components/common/Button/style";
 import { Post } from "../../components/common/Post";
@@ -7,8 +8,22 @@ import {
   StyledNavigationContainer,
   StyledPostContainer,
 } from "./style";
+import { fetchRedditPosts } from "../../api/redditApi";
 
 export default function Home() {
+  const [articles, setArticles] = useState([]);
+  const [subreddit, setSubreddit] = useState("reactjs");
+
+  useEffect(() => {
+    fetchRedditPosts(subreddit)
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [subreddit]);
+
   return (
     <>
       <StyledMainContainer>
