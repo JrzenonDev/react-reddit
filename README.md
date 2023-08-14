@@ -6,7 +6,7 @@ This application fetches and displays posts from the reactjs subreddit. It allow
 
 1. Clone this repository to your local machine using the following command:
    ```
-   git clone https://github.com/your-username/reactreddit.git
+   git clone https://github.com/JrzenonDev/reactreddit.git
    ```
 
 2. Navigate to the project directory:
@@ -32,7 +32,7 @@ This application fetches and displays posts from the reactjs subreddit. It allow
    yarn dev
    ```
 
-5. Open your web browser and go to `http://localhost:3000` to see the application in action.
+5. Open your web browser and go to `http://localhost:5173` to see the application in action.
 
 ## Where Can I See the Project Online?
 
@@ -54,7 +54,7 @@ Please note that the project is hosted on Netlify, and the link provided may cha
 
 ## Credits
 
-This project was created by [Your Name]. You can find the source code and more information on the project's GitHub repository: [https://github.com/your-username/reactreddit](https://github.com/your-username/reactreddit)
+This project was created by JrzenonDev. You can find the source code and more information on the project's GitHub repository: [https://github.com/your-username/reactreddit](https://github.com/JrzenonDev/reactreddit)
 
 ## License
 
